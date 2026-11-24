@@ -120,7 +120,7 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <p>Se usó un modelo promediado en espacio de estados (Erickson y Maksimović, 2020). Los estados son el voltaje del panel vp y la corriente del inductor iL; el voltaje de salida se tomó constante en 12 V. Las matrices se obtuvieron con Jacobianos en MATLAB.</p>
 <div class="eq">dvp/dt = (0.68 − vp/75 − iL) / Cpv</div></div>
 <div><p>De ahí sale la función de transferencia entre el voltaje del panel y el ciclo de trabajo:</p>
-<div class="eq">Gvd(s) = −7.737×10⁹ / (s² + 2837 s + 6.447×10⁸)<br> d = 1 - (vin/vo) <br> d = 0.5 </div></div></div>
+<div class="eq">Gvd(s) = −7.737×10⁹ / (s² + 2837 s + 6.447×10⁸)<br> d = 1 - (6/12) <br> d = 0.5 </div></div></div>
 <div class="stats"><div><b>12 V</b><span>ganancia en estado estacionario, por unidad de D</span></div><div><b>4.04 kHz</b><span>frecuencia natural de la resonancia Cpv–L</span></div><div><b>0.056</b><span>factor de amortiguamiento: resonancia poco amortiguada</span></div></div>
 <figure style="margin-top:1.5rem"><div class="ph">Agrega img/respuesta-escalon.png<img src="img/respuesta-escalon.png" alt="Respuesta al escalón de Gvd(s), oscilatoria y estabilizada en −12" onerror="this.remove()"></div><figcaption>Respuesta al escalón de Gvd(s) en MATLAB.</figcaption></figure>
 </div></section>
@@ -174,7 +174,6 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 
 <section id="montaje"><div class="wrap">
 <h2>Guía de montaje y pruebas</h2>
-<div class="alert"><strong>Antes de empezar.</strong> El circuito trabaja a voltaje extra bajo, pero los MOSFET y los reguladores 7815/7805 se calientan. Energiza primero la lógica y después la potencia.</div>
 <ol class="steps">
 <li><b>Etapa de instrumentación.</b> Suelda los reguladores 7815 y 7805 y comprueba +15 V y +5 V con sus LED indicadores.</li>
 <li><b>Lógica de protección.</b> Monta el LM555 con los pulsadores PULL_ON y PULL_OFF y verifica que el pin SD del IR2110 responde.</li>
