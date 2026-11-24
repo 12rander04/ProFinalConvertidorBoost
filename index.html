@@ -81,7 +81,7 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <p class="kicker">Electrónica de Potencia (EPW103-1) · Ingeniería Electrónica · ITM 2026-2</p>
 <h1>Un convertidor boost nos permite mantener estable el voltaje de un panel solar</h1>
 <p class="lead">Durante este proyecto se realizo un convertidor DC-DC tipo elevador con un control PID digital en un Arduino UNO. El cual Regula el voltaje del panel y eleva de 6 V a 12 V sobre una carga.</p>
-<a class="btn" href="#etapas">Ver el sistema</a><a class="btn alt" href="https://github.com/TU_USUARIO/TU_REPOSITORIO">Repositorio en GitHub</a>
+<a class="btn" href="#etapas">Ver el sistema</a><a class="btn alt" href="https://github.com/12rander04/ProFinalConvertidorBoost">Repositorio en GitHub</a>
 </div>
 <div class="rig" aria-labelledby="rt">
 <h3 id="rt">Prueba la ganancia ideal del boost</h3>
@@ -96,8 +96,9 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <section id="descripcion"><div class="wrap">
 <h2>El problema y el contexto</h2>
 <div class="cols"><div>
-<p>Un panel solar entrega un voltaje que cambia con la irradiancia y la temperatura. Para que el convertidor trabaje cerca del punto de máxima potencia, hay que controlar el voltaje de entrada, no el de salida.</p>
-<p>Este proyecto modela el sistema panel + boost, lo implementa en una placa propia y lo regula con un PID discreto. Es la base de un proyecto de grado: un reconfigurador de celdas que alterne entre serie y paralelo según el voltaje que necesite la salida.</p></div>
+<p>Los paneles solares son dispositivos que entregan un voltaje que cambia con la irradiancia y la temperatura. En base a esto se obtener un voltaje constante a la salida, el convertidor debe trabajar cerca del punto máximo de potencia, por ende, se debe controlar el voltaje de entrada, no el de salida.</p>
+<p>Este proyecto modela el sistema panel + boost, el cual se implementa en una placa desarrolada en base a un diseño del profesor Juan Pablo Villegas, siendo regulada con un PID discreto.</p>
+<p>Nota: Esto es la base de un proyecto de grado; un reconfigurador de celdas que alterne entre serie y paralelo según el voltaje que necesite la salida.</p></div>
 <div><p>Con ciclos de trabajo cercanos a 1, el boost pierde eficiencia por la resistencia de sus componentes y se calienta. Por eso el controlador limita D entre 3.9 % y 87.9 %.</p>
 <p>El panel se representó con un modelo linealizado: una fuente de 0.68 A en paralelo con 75 Ω, alrededor de 6 V y 0.6 A.</p></div></div>
 </div></section>
@@ -107,9 +108,9 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <p>De izquierda a derecha, así viaja la energía y la información por el sistema.</p>
 <div class="flow">
 <div class="stage"><h3>Generación</h3><p>Panel de ≈ 6 V y 0.6 A, con Rpv ≈ 75 Ω. En las pruebas se emuló como fuente de corriente.</p><span class="tags">Cpv 4.7 µF</span></div>
-<div class="stage"><h3>Potencia</h3><p>Inductor, MOSFET y capacitor de salida elevan el voltaje a 12 V sobre 40 Ω.</p><span class="tags">L 330 µH · Co 47 µF · IRF1404</span></div>
+<div class="stage"><h3>Potencia</h3><p>Inductor, MOSFET y capacitor de salida elevan el voltaje a 12 V con una carga de 40 Ω.</p><span class="tags">L 330 µH · Co 47 µF · IRF1404</span></div>
 <div class="stage"><h3>Sensado</h3><p>Un divisor resistivo de relación 1.212 baja el voltaje del panel al rango de 5 V del ADC.</p><span class="tags">ADC A0 · 10 lecturas promediadas</span></div>
-<div class="stage"><h3>Control</h3><p>PID incremental en el Arduino UNO. Ajusta el ancho de pulso para llevar vp a la referencia.</p><span class="tags">Timer1 · Fast PWM 9 bits</span></div>
+<div class="stage"><h3>Control</h3><p>PID incremental en el Arduino UNO. Ajusta el ancho de pulso para llevar el voltaje del panel (Vp) a la referencia.</p><span class="tags">Timer1 · Fast PWM 9 bits</span></div>
 <div class="stage"><h3>Disparo y protección</h3><p>El IR2110 maneja los MOSFET. Un LM555 corta el PWM por hardware con PULL_OFF.</p><span class="tags">IR2110 · LM555 · SD</span></div>
 </div></div></section>
 
