@@ -118,10 +118,10 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <h2>Modelo matemático</h2>
 <div class="cols"><div>
 <p>Se usó un modelo promediado en espacio de estados (Erickson y Maksimović, 2020). Los estados son el voltaje del panel vp y la corriente del inductor iL; el voltaje de salida se tomó constante en 12 V. Las matrices se obtuvieron con Jacobianos en MATLAB.</p>
-<div class="eq">dvp/dt = (0.68 − vp/75 − iL) / Cpv<br>diL/dt = (vp − vC(1 − d)) / L</div></div>
+<div class="eq">dvp/dt = (0.68 − vp/75 − iL) / Cpv</div>
 <div><p>De ahí sale la función de transferencia entre el voltaje del panel y el ciclo de trabajo:</p>
-<div class="eq">Gvd(s) = −7.737×10⁹ / (s² + 2837 s + 6.447×10⁸)</div></div></div>
-<div class="stats"><div><b>−12 V</b><span>ganancia en estado estacionario, por unidad de D</span></div><div><b>4.04 kHz</b><span>frecuencia natural de la resonancia Cpv–L</span></div><div><b>0.056</b><span>factor de amortiguamiento: resonancia poco amortiguada</span></div></div>
+<div class="eq">Gvd(s) = −7.737×10⁹ / (s² + 2837 s + 6.447×10⁸)<br> d = 1 - vin/vo = 0.5 </div></div></div></div>
+<div class="stats"><div><b>12 V</b><span>ganancia en estado estacionario, por unidad de D</span></div><div><b>4.04 kHz</b><span>frecuencia natural de la resonancia Cpv–L</span></div><div><b>0.056</b><span>factor de amortiguamiento: resonancia poco amortiguada</span></div></div>
 <figure style="margin-top:1.5rem"><div class="ph">Agrega img/respuesta-escalon.png<img src="img/respuesta-escalon.png" alt="Respuesta al escalón de Gvd(s), oscilatoria y estabilizada en −12" onerror="this.remove()"></div><figcaption>Respuesta al escalón de Gvd(s) en MATLAB.</figcaption></figure>
 </div></section>
 
@@ -141,7 +141,6 @@ footer{background:var(--ink);color:#b9ccd8;padding:2rem 0;font-size:.9rem}footer
 <tr><td>Control</td><td>PID discreto incremental, muestreo de 2 ms (500 Hz)</td></tr>
 <tr><td>Rango de ciclo de trabajo</td><td>≈ 3.9 % a 87.9 % (OCR1A = 470 − d, saturado entre 20 y 450)</td></tr>
 <tr><td>Diseño de PCB</td><td>Autodesk EAGLE</td></tr>
-<tr><td>Costo de materiales</td><td>50.000 COP</td></tr>
 </table></div></div></section>
 
 <section id="resultados"><div class="wrap">
